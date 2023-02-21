@@ -46,7 +46,7 @@ else:
         while re.match(r'\d{4}-\d{2}-\d{2}', date) is None:
             print('日付フォーマットが不正です')
             date = input('新しい開催日を入力してください（YYYY-MM-DD）: ')
-        c.execute('UPDATE contest_info SET next_start_date = NEXT_DAY(?, 1) WHERE name = ?', (date, contest['name']))
+        c.execute('UPDATE contest_info SET next_start_date = date(?, \'+1 day\') WHERE name = ?', (date, contest['name']))
 
 problem_infos = contest['problem_infos']
 problem_json = requests.get('https://kenkoooo.com/atcoder/resources/problem-models.json').json()
