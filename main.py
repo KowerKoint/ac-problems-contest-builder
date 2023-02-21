@@ -39,9 +39,8 @@ if contest_info is None:
         date = input('作成するコンテストの開催日を入力してください（YYYY-MM-DD）: ')
     c.execute('INSERT INTO contest_info VALUES (?, date(?, \'+1 day\'))', (contest['name'], date))
 else:
-    print(contest_info)
     date = contest_info[1]
-    print('次回のコンテストは%sに設定されています' % date.strftime('%Y-%m-%d'))
+    print('次回のコンテストは%sに設定されています' % date)
     if input('変更しますか？（y/n）: ').lower() == 'y':
         date = input('新しい開催日を入力してください（YYYY-MM-DD）: ')
         while re.match(r'\d{4}-\d{2}-\d{2}', date) is None:
