@@ -15,7 +15,7 @@ contest_sets = [
                 'point': 1,
                 'include_experimental': True,
                 'duplicate_remove_days': 60
-            }
+            },
             {
                 'difficulty_range': (2200, 2399),
                 'point': 1,
